@@ -2,20 +2,25 @@ package university.management.system;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-public class AddFaculty extends JFrame {
+public class AddFaculty extends JFrame implements ActionListener{
     JTextField textName,textfather,textAddress,textPhone,textEmail,textM10,textM12,textAadhar;
     JLabel empText;
     JDateChooser cdob;
-    JComboBox courseBox;
+    JComboBox courseBox,departmentBox;
+    JButton submit,cancel;
 
  // so you want random numbers for each employee
  Random ran = new Random();
@@ -164,6 +169,38 @@ public class AddFaculty extends JFrame {
         add(courseBox);
         
 
+         JLabel department = new JLabel("Department");
+        department.setBounds(400,400,200,30);
+        department.setFont(new Font("serif",Font.BOLD,20));
+        add(department);
+
+
+        String Department[] = {"Computer Science","Electronics and Telecommunication","Mechanical","Civil","IT","Printing","Accounts","BMS","BAF","History","Teaching","Artist","Chemical","Aerospace"
+                              ,"Software Development","Web Development","Cloud Computing","Marketing","Finance","Entrepreneurship"
+                            ,"Physics","Chimistry","Mathematics","Economics","psychology","Fashion Designing"};
+        departmentBox = new JComboBox<>(Department);
+        departmentBox.setBounds(600,400,150,30);
+        departmentBox.setBackground(Color.WHITE);
+        add(departmentBox);
+
+
+
+        submit = new JButton("Submit");
+        submit.setBounds(250, 550, 120, 30);
+        submit.setBackground(Color.BLACK);
+        submit.setForeground(Color.WHITE);
+        submit.addActionListener(this);
+        add(submit); 
+
+
+
+        cancel = new JButton("Cancel");
+        cancel.setBounds(450, 550, 120, 30);
+        cancel.setBackground(Color.BLACK);
+        cancel.setForeground(Color.WHITE);
+        cancel.addActionListener(this);
+        add(cancel); 
+
 
 
 
@@ -172,6 +209,47 @@ public class AddFaculty extends JFrame {
         setLayout(null);
         setVisible(true);
 
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+
+        if(e.getSource() == submit){
+            String name = textName.getText();
+            String fname = textfather.getText();
+            String empID = empText.getText();
+             String dob = ((JTextField) cdob.getDateEditor().getUiComponent()).getText();
+             String address = textAddress.getText();
+             String phone = textPhone.getText();
+             String email = textEmail.getText();
+            String x = textM10.getText();
+            String xii = textM12.getText();
+            String aadhar = textAadhar.getText();
+            String course = (String) courseBox.getSelectedItem();
+            String department = (String) departmentBox.getSelectedItem();
+
+            try {
+                String q = "insert into teacher values('"+name+"','"+fname+"','"+empID+"','"+dob+"','"+address+"','"+phone+"','"+email+"','"+x+"','"+xii+"','"+aadhar+"','"+course+"','"+department+"')";
+                Conn c = new Conn();
+                c.statement.executeUpdate(q);
+                JOptionPane.showMessageDialog(null, "Details Inserted");
+                setVisible(false);
+
+                
+            } catch (Exception E) {
+                // TODO: handle exception
+                E.printStackTrace();
+            }
+        
+            } else{
+                setVisible(false);
+            }
+
+
+
+        
     }
 
 
