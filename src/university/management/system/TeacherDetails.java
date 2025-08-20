@@ -128,7 +128,7 @@ E.printStackTrace();
     }
 }else if(e.getSource() == add){
     setVisible(false);
-    new AddFaculty();
+    new AddFaculty ();
 
 }else if(e.getSource() == update){
 
