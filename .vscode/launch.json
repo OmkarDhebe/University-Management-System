@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EnterMarks",
+            "request": "launch",
+            "mainClass": "university.management.system.EnterMarks",
+            "projectName": "University Management System_94b2d27d"
+        },
+        {
+            "type": "java",
             "name": "main_class",
             "request": "launch",
             "mainClass": "university.management.system.main_class",
