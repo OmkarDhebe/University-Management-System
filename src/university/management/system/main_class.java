@@ -35,11 +35,13 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem facultyInfo = new JMenuItem("New Faculty Information");
         facultyInfo.setBackground(Color.white);
+        facultyInfo.addActionListener(this);
         newInfo.add(facultyInfo);
 
 
         JMenuItem studentInfo = new JMenuItem("New Student Information");
         studentInfo.setBackground(Color.WHITE);
+        studentInfo.addActionListener(this);
         newInfo.add(studentInfo); 
 
 
@@ -52,10 +54,12 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem facultydetails = new JMenuItem("View Faculty Details");
         facultydetails.setBackground(Color.WHITE);
+        facultydetails.addActionListener(this);
         details.add(facultydetails);
 
         JMenuItem studentdetails = new JMenuItem("View Student Details");
         studentdetails.setBackground(Color.WHITE);
+        studentdetails.addActionListener(this);
         details.add(studentdetails); 
 
         
@@ -69,10 +73,12 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem facultyleave = new JMenuItem("Faculty Leave");
         facultyleave.setBackground(Color.WHITE);
+        facultyleave.addActionListener(this);
         leave.add(facultyleave);
 
         JMenuItem studentleave = new JMenuItem("Student Leave");
         studentleave.setBackground(Color.WHITE);
+        studentleave.addActionListener(this);
         leave.add(studentleave); 
 
 
@@ -86,13 +92,15 @@ public class main_class extends JFrame implements ActionListener {
         mb.add(leaveDetails);
 
 
-        JMenuItem facultyleaveDetails = new JMenuItem("Student Leave Details");
+        JMenuItem facultyleaveDetails = new JMenuItem("Faculty Leave Details");
         facultyleaveDetails.setBackground(Color.WHITE);
+        facultyleaveDetails.addActionListener(this);
         leaveDetails.add(facultyleaveDetails);
 
 
         JMenuItem studentleaveDetails = new JMenuItem("Student Leave Details");
         studentleaveDetails.setBackground(Color.WHITE);
+        studentleaveDetails.addActionListener(this);
         leaveDetails.add(studentleaveDetails);
 
 
@@ -104,13 +112,15 @@ public class main_class extends JFrame implements ActionListener {
         mb.add(exam);
 
 
-        JMenuItem ExaminationDetails = new JMenuItem("Examiinaton Result");
+        JMenuItem ExaminationDetails = new JMenuItem("Examinaton Result");
         ExaminationDetails.setBackground(Color.WHITE);
+        ExaminationDetails.addActionListener(this);
         exam.add(ExaminationDetails);
 
 
         JMenuItem EnterMarks = new JMenuItem("Enter Marks");
         EnterMarks.setBackground(Color.WHITE);
+        EnterMarks.addActionListener(this);
         exam.add(EnterMarks);
 
 
@@ -127,11 +137,13 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem updatefacultyInfo = new JMenuItem("Update Faculty Details");
         updatefacultyInfo.setBackground(Color.WHITE);
+        updatefacultyInfo.addActionListener(this);
         updateInfo.add(facultyInfo);
 
 
         JMenuItem updatestudentinfo = new JMenuItem("Update Student Details");
         updatestudentinfo.setBackground(Color.WHITE);
+        updatestudentinfo.addActionListener(this);
         updateInfo.add(updatestudentinfo);
 
 
@@ -146,11 +158,13 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem feestructure = new JMenuItem("Fee Structure");
         feestructure.setBackground(Color.WHITE);
+        feestructure.addActionListener(this);
         fee.add(feestructure);
 
 
         JMenuItem feeForm = new JMenuItem("Student Fee Form");
         feeForm.setBackground(Color.WHITE);
+        feeForm.addActionListener(this);
         fee.add(feeForm);
 
 
@@ -186,6 +200,7 @@ public class main_class extends JFrame implements ActionListener {
 
         JMenuItem About = new JMenuItem("About");
         About.setBackground(Color.WHITE);
+        About.addActionListener(this);
         about.add(About);
 
 
@@ -249,6 +264,39 @@ try {
     E.printStackTrace();
 }
 
+}else if(sm.equals("New Faculty Information")){
+    new AddFaculty();
+
+}else if(sm.equals("New Student Information")){
+    new AddStudent();
+}else if(sm.equals("View Faculty Details")){
+    new TeacherDetails();
+}else if(sm.equals("View Student Details")){
+    new StudentDetails();
+}else if(sm.equals("Faculty Leave")){
+    new TeacherLeave();
+}else if(sm.equals("Student Leave")){
+    new StudentLeave();
+}else if (sm.equals("Faculty Leave Details")) {
+    new TeacherLeaveDetails();
+    
+}else if (sm.equals("Student Leave Details")) {
+   new StudentLeaveDetails(); 
+}else if(sm.equals("Update Faculty Details")){
+new UpdateTeacher();
+}else if (sm.equals("Update Student Details")) {
+    new UpdateStudent();
+}else if (sm.equals("Enter Marks")) {
+    new EnterMarks();
+    
+}else if (sm.equals("Examinaton Result")) {
+    new ExaminationDetails();
+}else if (sm.equals("Fee Structure")) {
+    new FeeStructure();
+}else if(sm.equals("Student Fee Form")){
+    new StudentFeeForm();
+}else if (sm.equals("About")) {
+    new About();
 }
 
 

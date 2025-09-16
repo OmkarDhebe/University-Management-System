@@ -107,6 +107,7 @@ public void actionPerformed(ActionEvent e) {
     if (e.getSource() == result) {
         setVisible(false);
         //  new frame of marks class
+        new Marks(search.getText());
 
         
     }else{
